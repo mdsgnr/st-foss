@@ -1,0 +1,550 @@
+/* ===================================================
+   FOSS Course – Home Page Styles
+   =================================================== */
+
+/* ─── HERO BANNER ─── */
+.hero-banner {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    background: var(--bg-primary);
+    min-height: 480px;
+}
+
+@media (min-width: 900px) {
+    .hero-banner {
+        flex-direction: row;
+        text-align: left;
+        align-items: center;
+        justify-content: center;
+        padding: 5rem 4rem 4rem;
+        gap: 4rem;
+    }
+}
+
+.hero-bg-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.12;
+}
+
+.shape-1 {
+    width: 500px;
+    height: 500px;
+    background: #4f46e5;
+    top: -150px;
+    left: -150px;
+    animation: float 8s ease-in-out infinite;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background: #7c3aed;
+    top: -100px;
+    right: -100px;
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.shape-3 {
+    width: 300px;
+    height: 300px;
+    background: #06b6d4;
+    bottom: -80px;
+    left: 30%;
+    animation: float 12s ease-in-out infinite;
+}
+
+.shape-4 {
+    width: 200px;
+    height: 200px;
+    background: #10b981;
+    bottom: 50px;
+    right: 10%;
+    animation: float 7s ease-in-out infinite reverse;
+}
+
+[data-theme="dark"] .shape {
+    opacity: 0.08;
+}
+
+.hero-content {
+    position: relative;
+    max-width: 560px;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--bg-accent);
+    color: var(--accent-primary);
+    border: 1px solid var(--border-accent);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 1.25rem;
+}
+
+.hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-title-foss {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+.meta-icon {
+    font-size: 1.1rem;
+}
+
+.meta-item strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.hero-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 460px;
+    border-left: 3px solid var(--accent-primary);
+    padding-left: 1rem;
+}
+
+/* ─── HERO VISUAL ─── */
+.hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    height: 260px;
+    flex-shrink: 0;
+    animation: fadeIn 1s ease 0.3s forwards;
+    opacity: 0;
+}
+
+.hero-icon-ring {
+    position: relative;
+    width: 240px;
+    height: 240px;
+}
+
+.hero-center-icon {
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.5rem;
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 8px 24px rgba(79, 70, 229, 0.3));
+}
+
+.icon-orbit {
+    position: absolute;
+    inset: 0;
+    animation: spin 18s linear infinite;
+}
+
+.orbit-icon {
+    position: absolute;
+    font-size: 1.6rem;
+    width: 44px;
+    height: 44px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    animation: counter-spin 18s linear infinite;
+    line-height: 1;
+    text-align: center;
+
+    /* Position around orbit circle */
+    top: 50%;
+    left: 50%;
+    --orbit-r: 105px;
+    --angle: calc(var(--i) * 60deg);
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--orbit-r)) rotate(calc(-1 * var(--angle)));
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes counter-spin {
+    from {
+        --cangle: calc(var(--i) * 60deg);
+        transform: translate(-50%, -50%) rotate(calc(var(--cangle))) translateX(105px) rotate(calc(-1 * var(--cangle)));
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(calc(var(--i) * 60deg + 360deg)) translateX(105px) rotate(calc(-1 * (var(--i) * 60deg + 360deg)));
+    }
+}
+
+/* ─── STATS BAR ─── */
+.stats-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.stat-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.2rem;
+}
+
+.stat-sep {
+    width: 1px;
+    height: 40px;
+    background: var(--border-color);
+}
+
+@media (max-width: 640px) {
+    .stat-sep {
+        display: none;
+    }
+
+    .stat-item {
+        padding: 0.5rem 1.5rem;
+    }
+}
+
+/* ─── CHAPTERS SECTION ─── */
+.chapters-section {
+    padding: 3rem 1.5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ─── CHAPTER CARDS GRID ─── */
+.chapters-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+    .chapters-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 960px) {
+    .chapters-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ─── CHAPTER CARD ─── */
+.chapter-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+    transition: all var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.chapter-card.available:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--card-color, var(--accent-primary));
+}
+
+.chapter-card.available:hover .card-decor {
+    opacity: 0.08;
+}
+
+.card-decor {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    background: var(--card-bg, var(--gradient-hero));
+    border-radius: 50%;
+    opacity: 0.04;
+    transition: opacity var(--transition);
+}
+
+.card-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--card-color, var(--accent-primary));
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+}
+
+.card-icon {
+    font-size: 2.4rem;
+    line-height: 1;
+    transition: transform var(--transition);
+}
+
+.chapter-card.available:hover .card-icon {
+    transform: scale(1.15) rotate(-5deg);
+}
+
+.card-body {
+    flex: 1;
+}
+
+.card-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.85rem;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.ctag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--card-color, var(--accent-primary));
+    background: color-mix(in srgb, var(--card-color, var(--accent-primary)) 8%, var(--bg-card));
+    border: 1px solid color-mix(in srgb, var(--card-color, var(--accent-primary)) 20%, transparent);
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    letter-spacing: 0.03em;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.available-badge {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent-success);
+}
+
+.locked-badge {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.card-arrow {
+    font-size: 1.2rem;
+    color: var(--card-color, var(--accent-primary));
+    transition: transform var(--transition-fast);
+}
+
+.chapter-card.available:hover .card-arrow {
+    transform: translateX(5px);
+}
+
+/* ─── LOCKED CARD ─── */
+.chapter-card.locked {
+    cursor: not-allowed;
+    filter: grayscale(0.3);
+}
+
+.card-lock-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(var(--bg-secondary-raw, 255, 255, 255), 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    gap: 0.5rem;
+    backdrop-filter: blur(2px);
+    border-radius: var(--radius-lg);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+[data-theme="dark"] .card-lock-overlay {
+    background: rgba(10, 12, 16, 0.12);
+}
+
+.chapter-card.locked:hover .card-lock-overlay {
+    opacity: 1;
+}
+
+.lock-icon {
+    font-size: 2.5rem;
+}
+
+.lock-label {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* ─── INFO STRIP ─── */
+.info-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+@media (min-width: 700px) {
+    .info-strip {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.info-strip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.75rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+@media (min-width: 700px) {
+    .info-strip-item {
+        border-bottom: none;
+        border-right: 1px solid var(--border-color);
+    }
+
+    .info-strip-item:last-child {
+        border-right: none;
+    }
+}
+
+.info-strip-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.info-strip-item strong {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+}
+
+.info-strip-item p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}

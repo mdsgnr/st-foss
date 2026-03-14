@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 2: Legal Framework and Licensing – FOSS Course | Classia</title>
+    <meta name="description"
+        content="Chapter 2 – Legal Framework and Licensing. Copyright, copyleft, GPL, MIT, BSD, Apache licenses, and their implications for Algeria." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;600;700;900&family=Lexend:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/chapter2.css" />
+    <script src="js/main.js"></script>
+    <script src="js/chapter2.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="site-nav">
+        <a class="nav-logo" href="index.html">
+            <div class="logo-icon"><span class="material-symbols-outlined">terminal</span></div>
+            <span>FOSS Course</span>
+        </a>
+        <div class="nav-actions">
+            <a href="index.html" class="home-btn">
+                <span class="material-symbols-outlined">home</span>
+                <span>Home</span>
+            </a>
+            <button class="theme-toggle" aria-label="Toggle theme"><span
+                    class="material-symbols-outlined">dark_mode</span></button>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+
+        <!-- CHAPTER HERO -->
+        <header class="ch2-hero">
+            <div class="ch2-hero-bg" aria-hidden="true">
+                <div class="ch2-legal-pattern"></div>
+            </div>
+            <div class="ch2-hero-content">
+                <div class="ch2-chapter-label">
+                    <span class="ch2-num">02</span>
+                    <span class="ch2-label-text">Chapter Two</span>
+                </div>
+                <h1 class="ch2-title">Legal Framework &amp;<br><span class="ch2-title-accent">Licensing</span></h1>
+
+            </div>
+            <div class="ch2-hero-scales" aria-hidden="true">
+                <div class="scales-icon"><span class="material-symbols-outlined" style="font-size:3rem">balance</span>
+                </div>
+                <div class="scales-sub">
+                    <span class="scales-badge copyleft">GPL</span>
+                    <span class="scales-badge permissive">MIT</span>
+                    <span class="scales-badge proprietary">Proprietary</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <div class="ch2-layout">
+
+            <!-- TOC SIDEBAR -->
+            <aside class="ch2-toc-aside">
+                <div class="toc-card sticky-toc">
+                    <div class="toc-title"><span class="material-symbols-outlined" style="font-size:1.1rem">toc</span>
+                        Contents</div>
+                    <ul class="toc-list">
+                        <li><a href="#s1"><span class="toc-number">1</span> Why Licenses?</a></li>
+                        <li><a href="#s2"><span class="toc-number">2</span> Copyright Basics</a></li>
+                        <li class="toc-sub"><a href="#s2-1">What is Copyright?</a></li>
+                        <li class="toc-sub"><a href="#s2-2">Copyright & Software</a></li>
+                        <li class="toc-sub"><a href="#s2-3">License as Permission</a></li>
+                        <li><a href="#s3"><span class="toc-number">3</span> Proprietary Licenses</a></li>
+                        <li><a href="#s4"><span class="toc-number">4</span> FOSS Licenses</a></li>
+                        <li><a href="#s5"><span class="toc-number">5</span> Copyleft Licenses</a></li>
+                        <li class="toc-sub"><a href="#s5-1">GPL</a></li>
+                        <li class="toc-sub"><a href="#s5-2">LGPL</a></li>
+                        <li class="toc-sub"><a href="#s5-3">Copyleft vs Copyright</a></li>
+                        <li><a href="#s6"><span class="toc-number">6</span> Permissive Licenses</a></li>
+                        <li><a href="#s7"><span class="toc-number">7</span> Comparing Licenses</a></li>
+                        <li><a href="#s8"><span class="toc-number">8</span> Compatibility</a></li>
+                        <li><a href="#s9"><span class="toc-number">9</span> Algerian Implications</a></li>
+                        <li><a href="#s10"><span class="toc-number">10</span> Conclusion</a></li>
+                        <li><a href="#s11"><span class="toc-number">?</span> Discussion Questions</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- ARTICLE -->
+            <article class="ch2-article">
+
+                <!-- Section 1: Why Licenses -->
+                <section id="s1" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 1</div>
+                    <h2 class="ch2-section-heading">Introduction: Why Talk About Licenses?</h2>
+                    <p class="content-p">In Chapter 1, we focused on freedom, history, and philosophy. In this chapter,
+                        we look at the <strong>legal side</strong>. Every serious software project, free or proprietary,
+                        has a license. The license tells you what you are allowed to do and what you are not allowed to
+                        do.</p>
+                    <p class="content-p">A software license is a <strong>legal agreement</strong> between the author of
+                        the software and the user. When you install software, even if you click "Next" without reading
+                        anything, you are accepting its license. As future engineers, you must understand basic ideas so
+                        that you do not break the law or the ethical rules of your profession.</p>
+
+                    <div class="ch2-house-analogy reveal">
+                        <div class="house-col">
+                            <div class="house-icon"><span class="material-symbols-outlined"
+                                    style="font-size:2.5rem">home</span></div>
+                            <h4 class="house-title">House Analogy</h4>
+                            <p class="house-desc">Think of software like a house. The <strong>license is a
+                                    document</strong> that says who can enter, under which conditions, what they can do
+                                inside, and what they cannot do.</p>
+                            <ul class="house-list">
+                                <li>🚪 Running the program</li>
+                                <li>📋 Copying it</li>
+                                <li>📤 Sharing it</li>
+                                <li>🔧 Modifying it</li>
+                                <li>🔗 Using parts in other programs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Copyright Basics -->
+                <section id="s2" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 2</div>
+                    <h2 class="ch2-section-heading">Copyright Basics for Software</h2>
+
+                    <div id="s2-1" class="reveal">
+                        <h3 class="ch2-sub-heading">What is Copyright?</h3>
+                        <p class="content-p">Copyright is a legal system that gives the author of a creative work
+                            special rights over that work. These rights usually include:</p>
+                        <ul class="content-list">
+                            <li>The right to copy the work</li>
+                            <li>The right to distribute it</li>
+                            <li>The right to modify it</li>
+                            <li>The right to create new works based on it</li>
+                        </ul>
+                        <p class="content-p">When you write code, even a small program, you are the author and you have
+                            copyright on that code. <strong>You do not need to register anything.</strong> The rights
+                            are automatic.</p>
+                    </div>
+
+                    <div id="s2-2" class="reveal">
+                        <h3 class="ch2-sub-heading">How Copyright Applies to Software</h3>
+                        <p class="content-p">For software, copyright covers:</p>
+                        <ul class="content-list">
+                            <li>The source code</li>
+                            <li>The compiled binary (executable)</li>
+                            <li>Documentation, logos, icons, and other resources</li>
+                        </ul>
+                        <p class="content-p">By default, <strong>"all rights reserved"</strong> means nobody is allowed
+                            to copy, modify, or share your program without your permission. A software license is the
+                            way you give this permission in a clear and explicit way.</p>
+                    </div>
+
+                    <div id="s2-3" class="reveal">
+                        <h3 class="ch2-sub-heading">License as a Permission</h3>
+                        <p class="content-p">A license is <em>not</em> a sale of the program. When you install a
+                            program, you usually do not "own" the software code. You only receive <strong>permission to
+                                use it under certain conditions.</strong></p>
+                        <div class="ch2-compare-simple">
+                            <div class="ch2-cs-block proprietary">
+                                <h4>Proprietary License — Allows:</h4>
+                                <ul>
+                                    <li>✅ Install on one computer</li>
+                                    <li>✅ Use for personal/professional work</li>
+                                </ul>
+                                <h4 style="margin-top:0.75rem">Forbids:</h4>
+                                <ul>
+                                    <li>❌ Copy for friends</li>
+                                    <li>❌ Reverse engineer</li>
+                                    <li>❌ Modify</li>
+                                </ul>
+                            </div>
+                            <div class="ch2-cs-block foss">
+                                <h4>Free Software License — Guarantees:</h4>
+                                <ul>
+                                    <li>✅ Run for any purpose</li>
+                                    <li>✅ Study how it works</li>
+                                    <li>✅ Redistribute copies</li>
+                                    <li>✅ Share modifications</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 3: Proprietary Licenses -->
+                <section id="s3" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 3</div>
+                    <h2 class="ch2-section-heading">Proprietary Licenses</h2>
+
+                    <h3 class="ch2-sub-heading">Characteristics of Proprietary Licenses</h3>
+                    <p class="content-p">A proprietary license keeps almost all control in the hands of the software
+                        publisher. Typical rules include:</p>
+                    <ul class="content-list">
+                        <li>You can only install on a limited number of devices, sometimes only one.</li>
+                        <li>You cannot share copies with others, even if they are your classmates or colleagues.</li>
+                        <li>You cannot access or modify the source code.</li>
+                        <li>You cannot use the software for some purposes (e.g., no commercial use with a student
+                            version).</li>
+                        <li>You may not be allowed to use the software in certain countries or for certain activities.
+                        </li>
+                    </ul>
+
+                    <h3 class="ch2-sub-heading">Updates, Support, and Lock-in</h3>
+                    <p class="content-p">Proprietary licenses are usually connected to a business model:</p>
+                    <ul class="content-list">
+                        <li>The company sells licenses or subscriptions.</li>
+                        <li>You may have to pay extra for updates or support.</li>
+                        <li>If you stop paying, you may lose access or updates.</li>
+                    </ul>
+                    <div class="info-box warning-box reveal">
+                        <div class="box-title"><span class="material-symbols-outlined"
+                                style="vertical-align:middle;font-size:1rem">warning</span> Vendor Lock-in</div>
+                        <div class="box-body">You depend on one company for bug fixes, new features, file formats. If
+                            the company changes prices, closes its service, or stops supporting your version — you may
+                            be forced to upgrade or migrate in a hurry.</div>
+                    </div>
+
+                    <h3 class="ch2-sub-heading">Impact on Institutions and Users</h3>
+                    <p class="content-p">For universities, public administrations, and companies, proprietary licenses
+                        can create problems:</p>
+                    <ul class="content-list">
+                        <li>High costs for many seats (hundreds or thousands of users)</li>
+                        <li>Legal risks if some copies are not properly licensed</li>
+                        <li>Difficulty in adapting the software to local needs or languages</li>
+                        <li>Long-term dependence on one foreign vendor</li>
+                    </ul>
+                    <p class="content-p">These concerns are especially important for developing countries like
+                        <strong>Algeria</strong>, which must manage budgets carefully and protect their digital
+                        sovereignty.
+                    </p>
+                </section>
+
+                <!-- Section 4: FOSS Licenses overview -->
+                <section id="s4" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 4</div>
+                    <h2 class="ch2-section-heading">Free and Open Source Licenses</h2>
+                    <p class="content-p">Free and open source licenses are designed to give you more control. They are
+                        based on the four freedoms:</p>
+                    <ul class="content-list">
+                        <li>Run the program for any purpose</li>
+                        <li>Study how it works</li>
+                        <li>Modify it</li>
+                        <li>Share copies of the original or modified version</li>
+                    </ul>
+                    <p class="content-p">Within FOSS licenses, we can identify two big families:</p>
+                    <div class="ch2-license-family-cards">
+                        <div class="lf-card copyleft-card reveal">
+                            <div class="lf-icon"><span class="material-symbols-outlined">sync</span></div>
+                            <h4 class="lf-title">Copyleft Licenses</h4>
+                            <p class="lf-desc">Examples: GPL, LGPL, AGPL</p>
+                            <p class="lf-detail">Require that modified versions remain free when distributed.</p>
+                        </div>
+                        <div class="lf-card permissive-card reveal">
+                            <div class="lf-icon"><span class="material-symbols-outlined">lock_open</span></div>
+                            <h4 class="lf-title">Permissive Licenses</h4>
+                            <p class="lf-desc">Examples: MIT, BSD, Apache</p>
+                            <p class="lf-detail">Allow almost anything. Modified versions may become proprietary.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 5: Copyleft -->
+                <section id="s5" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 5</div>
+                    <h2 class="ch2-section-heading">Copyleft Licenses: Keeping Software Free</h2>
+
+                    <div class="ch2-copyleft-explain reveal">
+                        <div class="copyleft-chain">
+                            <div class="cc-step"><span class="cc-icon material-symbols-outlined">person</span><span
+                                    class="cc-label">First author gives freedom</span></div>
+                            <div class="cc-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+                            <div class="cc-step"><span class="cc-icon material-symbols-outlined">build</span><span
+                                    class="cc-label">You improve the software</span></div>
+                            <div class="cc-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+                            <div class="cc-step"><span class="cc-icon material-symbols-outlined">public</span><span
+                                    class="cc-label">Share with same freedom</span></div>
+                        </div>
+                    </div>
+
+                    <p class="content-p">Copyleft uses copyright in a smart way. The author says: <em>"You can use,
+                            modify, and share my software, but if you share it, you must keep it free for others
+                            too."</em></p>
+                    <p class="content-p">Copyleft does <strong>not</strong> force you to share your private
+                        modifications if you only use them inside your organization and do not distribute the software.
+                        The strong obligation appears when you <strong>distribute</strong> copies to others.</p>
+
+                    <div id="s5-1" class="reveal">
+                        <h3 class="ch2-sub-heading">The GNU General Public License (GPL)</h3>
+                        <p class="content-p">The GNU GPL is the most famous copyleft license. Many important projects
+                            use it, such as the Linux kernel and many GNU tools.</p>
+                        <div class="ch2-gpl-points">
+                            <div class="gpl-point"><span>✅</span> Use the software for any purpose</div>
+                            <div class="gpl-point"><span>✅</span> Must provide source code when distributing</div>
+                            <div class="gpl-point"><span>✅</span> Modified versions must also be under the GPL</div>
+                            <div class="gpl-point"><span>❌</span> Cannot add extra restrictions that remove user
+                                freedoms</div>
+                        </div>
+                        <div class="info-box note-box reveal">
+                            <div class="box-title"><span class="material-symbols-outlined"
+                                    style="vertical-align:middle;font-size:1rem">push_pin</span> Example</div>
+                            <div class="box-body">If you take a GPL text editor, add features, and give copies of your
+                                modified version to students, you must also provide the source code and allow others to
+                                modify your version under the GPL.</div>
+                        </div>
+                    </div>
+
+                    <div id="s5-2" class="reveal">
+                        <h3 class="ch2-sub-heading">The GNU Lesser GPL (LGPL)</h3>
+                        <p class="content-p">The LGPL is a <strong>weaker form of copyleft</strong>, often used for
+                            libraries. It allows proprietary programs to use the library without being forced to be GPL,
+                            as long as some technical conditions are respected (e.g., allowing users to replace the
+                            library with a modified version).</p>
+                        <div class="info-box tip-box reveal">
+                            <div class="box-title"><span class="material-symbols-outlined"
+                                    style="vertical-align:middle;font-size:1rem">lightbulb</span> Example</div>
+                            <div class="box-body">A graphical library under LGPL can be used in both free and
+                                proprietary applications, which makes it attractive for many developers.</div>
+                        </div>
+                    </div>
+
+                    <div id="s5-3" class="reveal">
+                        <h3 class="ch2-sub-heading">Copyleft vs Copyright</h3>
+                        <p class="content-p">It is important to understand that copyleft and copyright are <strong>not
+                                opposites</strong>. Copyleft <em>depends</em> on copyright.</p>
+                        <div class="ch2-versus-simple">
+                            <div class="cv-block">
+                                <div class="cv-icon"><span class="material-symbols-outlined">copyright</span></div>
+                                <h4>Copyright</h4>
+                                <p>Gives the author exclusive right to control copying, modification, and distribution.
+                                </p>
+                                <div class="cv-tag">Usually: "All rights reserved"</div>
+                            </div>
+                            <div class="cv-plus">+</div>
+                            <div class="cv-block">
+                                <div class="cv-icon"><span class="material-symbols-outlined">sync</span></div>
+                                <h4>Copyleft</h4>
+                                <p>A way an author <em>uses</em> copyright power to guarantee freedom for all users.</p>
+                                <div class="cv-tag">"Some rights reserved — freedom preserved"</div>
+                            </div>
+                            <div class="cv-equals">=</div>
+                            <div class="cv-block result-block">
+                                <div class="cv-icon"><span class="material-symbols-outlined">security</span></div>
+                                <h4>Freedom Protected</h4>
+                                <p>Without copyright, anyone could take your code and make it proprietary. Copyleft
+                                    prevents this.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 6: Permissive Licenses -->
+                <section id="s6" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 6</div>
+                    <h2 class="ch2-section-heading">Permissive Licenses: More Flexibility</h2>
+
+                    <h3 class="ch2-sub-heading">What is a Permissive License?</h3>
+                    <p class="content-p">Permissive licenses allow almost anything, as long as you keep a simple notice
+                        of the original authors and license. They do <strong>not</strong> require that modified versions
+                        remain free software.</p>
+
+                    <div class="ch2-license-cards-row">
+                        <div class="lic-card mit reveal">
+                            <div class="lic-name">MIT</div>
+                            <div class="lic-logo"><span class="material-symbols-outlined">description</span></div>
+                            <p class="lic-desc">Very short and simple. Use, copy, modify, distribute freely. Keep
+                                original copyright notice. No warranty by authors.</p>
+                            <div class="lic-badge permissive">Permissive</div>
+                        </div>
+                        <div class="lic-card bsd reveal">
+                            <div class="lic-name">BSD</div>
+                            <div class="lic-logo"><span class="material-symbols-outlined">article</span></div>
+                            <p class="lic-desc">Similar to MIT. Multiple variants (2-clause, 3-clause). Can use in
+                                proprietary software. Keep copyright notice.</p>
+                            <div class="lic-badge permissive">Permissive</div>
+                        </div>
+                        <div class="lic-card apache reveal">
+                            <div class="lic-name">Apache 2.0</div>
+                            <div class="lic-logo"><span class="material-symbols-outlined">verified</span></div>
+                            <p class="lic-desc">Permissive with patent provisions. Gives users a patent license from
+                                contributors. Used by large projects and companies.</p>
+                            <div class="lic-badge permissive">Permissive + Patents</div>
+                        </div>
+                    </div>
+
+                    <p class="content-p">You can take MIT or BSD licensed code and include it in <strong>proprietary
+                            software</strong>, without the obligation to release your own code.</p>
+                </section>
+
+                <!-- Section 7: Comparison -->
+                <section id="s7" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 7</div>
+                    <h2 class="ch2-section-heading">Copyleft vs Permissive: A Quick Comparison</h2>
+                    <div class="content-table-wrap">
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>🔄 Copyleft (GPL, LGPL)</th>
+                                    <th>🔓 Permissive (MIT, BSD, Apache)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Modified versions</td>
+                                    <td>Must remain free</td>
+                                    <td>Can become proprietary</td>
+                                </tr>
+                                <tr>
+                                    <td>User freedoms</td>
+                                    <td>Protected strongly</td>
+                                    <td>Gives more flexibility to developers</td>
+                                </tr>
+                                <tr>
+                                    <td>Best for</td>
+                                    <td>Building a common pool of free software</td>
+                                    <td>Libraries and tools used in many contexts</td>
+                                </tr>
+                                <tr>
+                                    <td>Commercial use</td>
+                                    <td>May be harder to mix with proprietary code</td>
+                                    <td>Easy to integrate into commercial products</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-box foss-box reveal">
+                        <div class="box-title"><span class="material-symbols-outlined"
+                                style="vertical-align:middle;font-size:1rem">explore</span> Which to choose?</div>
+                        <div class="box-body">
+                            <ul>
+                                <li>If your main goal is to <strong>protect user freedoms</strong> → choose copyleft
+                                    like GPL</li>
+                                <li>If you want your code used <strong>everywhere including proprietary
+                                        products</strong> → choose permissive like MIT or Apache</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 8: Compatibility -->
+                <section id="s8" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 8</div>
+                    <h2 class="ch2-section-heading">License Compatibility</h2>
+
+                    <h3 class="ch2-sub-heading">What is License Compatibility?</h3>
+                    <p class="content-p">License compatibility answers: <em>"Can I combine code under License A with
+                            code under License B in one project?"</em></p>
+                    <p class="content-p">If the conditions of the two licenses can be respected together, they are
+                        <strong>compatible</strong>. If not, they are <strong>incompatible</strong>.
+                    </p>
+
+                    <div class="ch2-compat-examples reveal">
+                        <div class="compat-ex ok">
+                            <span class="compat-icon">✅</span>
+                            <div>
+                                <strong>MIT + GPL → Compatible</strong>
+                                <p>MIT is permissive and does not conflict with GPL rules. MIT code can be included in
+                                    GPL projects.</p>
+                            </div>
+                        </div>
+                        <div class="compat-ex fail">
+                            <span class="compat-icon">❌</span>
+                            <div>
+                                <strong>GPL + Proprietary → Incompatible</strong>
+                                <p>The GPL requires that the whole combined work be GPL when distributed. This conflicts
+                                    with proprietary restrictions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="ch2-sub-heading">Why Students Should Care</h3>
+                    <p class="content-p">As students, you may reuse code from the internet, publish projects, or
+                        collaborate on FOSS projects. Understanding license compatibility helps you avoid legal and
+                        ethical problems and teaches you to respect other developers' work.</p>
+                </section>
+
+                <!-- Section 9: Algerian Implications -->
+                <section id="s9" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 9</div>
+                    <h2 class="ch2-section-heading">Implications for Algerian Educational Institutions and Businesses
+                    </h2>
+
+                    <div class="ch2-algeria-grid">
+                        <div class="alg2-card university reveal">
+                            <div class="alg2-icon"><span class="material-symbols-outlined">account_balance</span></div>
+                            <h4 class="alg2-title">For Universities &amp; Schools</h4>
+                            <ul class="content-list">
+                                <li><strong>Budget:</strong> Using FOSS reduces spending on licenses. Saved money →
+                                    better hardware, internet, training.</li>
+                                <li><strong>Equality:</strong> When tools are free, every student can install the same
+                                    software at home.</li>
+                                <li><strong>Academic Freedom:</strong> Access to source code allows study of real-world
+                                    systems, not just theory.</li>
+                                <li><strong>Local Adaptation:</strong> Universities can adapt software to Arabic,
+                                    Tamazight, and local needs without a foreign vendor.</li>
+                            </ul>
+                            <p class="content-p" style="margin:0; font-size:0.85rem; color: var(--text-muted)">At the
+                                University of Tipaza, using FOSS in this course makes practical work easier — every
+                                student can have the tools on their personal laptop.</p>
+                        </div>
+
+                        <div class="alg2-card business reveal">
+                            <div class="alg2-icon"><span class="material-symbols-outlined">business</span></div>
+                            <h4 class="alg2-title">For Businesses &amp; Startups</h4>
+                            <ul class="content-list">
+                                <li><strong>Lower Entry Barriers:</strong> Startups can begin with FOSS tools instead of
+                                    expensive proprietary solutions.</li>
+                                <li><strong>Control &amp; Independence:</strong> Not tied to one vendor. Hire local
+                                    developers or companies to maintain systems.</li>
+                                <li><strong>Export Potential:</strong> Contribute to international projects and build
+                                    products for local and African markets.</li>
+                                <li><strong>Compliance:</strong> Using legally clean FOSS reduces legal risks,
+                                    especially with international partners.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ch2-strategic-box reveal">
+                        <div class="strat-icon"><span class="material-symbols-outlined">public</span></div>
+                        <div class="strat-text">
+                            <h4>Strategic National Perspective</h4>
+                            <p>Encouraging the correct use of FOSS licenses in Algeria can strengthen digital
+                                sovereignty, support the local IT ecosystem, and build trust with international
+                                partners. For a country that wants to develop its knowledge economy, understanding
+                                software licenses is not a detail — <strong>it is a strategic choice.</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 10: Conclusion -->
+                <section id="s10" class="ch2-section reveal">
+                    <div class="ch2-section-label">Section 10</div>
+                    <h2 class="ch2-section-heading">Conclusion of Chapter 2</h2>
+                    <p class="content-p">In this chapter, we saw that:</p>
+                    <ul class="content-list">
+                        <li>Software licenses are essential rules that describe what you can and cannot do with
+                            software.</li>
+                        <li>Proprietary licenses restrict copying, modification, and sharing, and can create vendor
+                            lock-in and high long-term costs.</li>
+                        <li>Free and open source licenses are built around the four freedoms, and are divided into
+                            copyleft and permissive families.</li>
+                        <li>Copyleft licenses like the GPL protect user freedoms by requiring that modified versions
+                            remain free; permissive licenses like MIT, BSD, and Apache allow more flexibility.</li>
+                        <li>Copyleft is built on copyright, and uses it to protect freedom instead of restricting it.
+                        </li>
+                        <li>License compatibility matters when combining code from different sources.</li>
+                        <li>For Algerian educational institutions and businesses, the right license choices reduce
+                            costs, increase independence, and support local innovation.</li>
+                    </ul>
+                    <p class="content-p">As future engineers in Algeria, understanding these legal and ethical aspects
+                        will guide your choices in projects, startups, and professional work. You will be better
+                        prepared to build solutions that are both <strong>technically strong and legally sound.</strong>
+                    </p>
+                </section>
+
+                <!-- Section 11: Discussion Questions -->
+                <section id="s11" class="ch2-section reveal">
+                    <div class="ch2-section-label">Review</div>
+                    <h2 class="ch2-section-heading">Review Questions</h2>
+                    <div class="ch1-questions">
+                        <div class="question-item"><span class="q-num">Q1</span><span>Why is a software license
+                                necessary if the author already has copyright?</span></div>
+                        <div class="question-item"><span class="q-num">Q2</span><span>In which situations would you
+                                prefer a copyleft license for your project? In which situations a permissive
+                                license?</span></div>
+                        <div class="question-item"><span class="q-num">Q3</span><span>How do license choices influence
+                                the long-term strategy of a university or a company?</span></div>
+                        <div class="question-item"><span class="q-num">Q4</span><span>What risks can appear if an
+                                Algerian institution depends too much on a single proprietary vendor?</span></div>
+                        <div class="question-item"><span class="q-num">Q5</span><span>If you start a student project at
+                                the University of Tipaza, which license would you choose and why, considering both
+                                technical and Algerian context?</span></div>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="chapter-nav-bar reveal">
+                    <a href="chapter1.html" class="cnav-btn secondary">
+                        <span class="material-symbols-outlined">arrow_back</span> Chapter 1: Foundations
+                    </a>
+                    <a href="chapter3.html" class="cnav-btn primary">
+                        Chapter 3: Operating Systems <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
+            </article>
+        </div><!-- /ch2-layout -->
+
+    </div><!-- /page-wrapper -->
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>
+            <span>FOSS (Free Open Source Software)</span> – the course by <span>Mr. Mirad M</span> – All rights
+            reserved, <span>Classia 2026</span>
+        </p>
+    </footer>
+
+</body>
+
+</html>

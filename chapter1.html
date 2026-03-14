@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 1: Foundations of Free Software – FOSS Course | Classia</title>
+    <meta name="description"
+        content="Chapter 1 – Foundations of Free Software. History, Four Freedoms, FOSS vs proprietary software, and the impact of free software." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;600;700;900&family=Lexend:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/chapter1.css" />
+    <script src="js/main.js"></script>
+    <script src="js/chapter1.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="site-nav">
+        <a class="nav-logo" href="index.html">
+            <div class="logo-icon"><span class="material-symbols-outlined">terminal</span></div>
+            <span>FOSS Course</span>
+        </a>
+        <div class="nav-actions">
+            <a href="index.html" class="home-btn">
+                <span>🏠</span>
+                <span>Home</span>
+            </a>
+            <button class="theme-toggle" aria-label="Toggle theme"><span
+                    class="material-symbols-outlined">dark_mode</span></button>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+
+        <!-- CHAPTER HERO -->
+        <header class="ch1-hero">
+            <div class="ch1-hero-bg" aria-hidden="true">
+                <div class="ch1-circle c1"></div>
+                <div class="ch1-circle c2"></div>
+                <div class="ch1-circle c3"></div>
+            </div>
+            <div class="ch1-hero-content">
+                <div class="ch1-chapter-label">
+                    <span class="ch1-num">01</span>
+                    <span class="ch1-label-text">Chapter One</span>
+                </div>
+                <h1 class="ch1-title">Foundations of<br><span class="ch1-title-accent">Free Software</span></h1>
+
+            </div>
+            <div class="ch1-hero-icon" aria-hidden="true"><span class="material-symbols-outlined">lock_open</span></div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <div class="ch1-layout">
+
+            <!-- TOC SIDEBAR -->
+            <aside class="ch1-toc-aside">
+                <div class="toc-card sticky-toc">
+                    <div class="toc-title"><span class="material-symbols-outlined" style="font-size:1.1rem">toc</span>
+                        Contents</div>
+                    <ul class="toc-list">
+                        <li><a href="#s1"><span class="toc-number">1</span> Historical Context</a></li>
+                        <li class="toc-sub"><a href="#s1-1">Software Crisis 1970s–80s</a></li>
+                        <li class="toc-sub"><a href="#s1-2">Proprietary Software & Vendor Lock-in</a></li>
+                        <li class="toc-sub"><a href="#s1-3">Birth of Free Software Movement</a></li>
+                        <li class="toc-sub"><a href="#s1-4">GNU Project & FSF</a></li>
+                        <li><a href="#s2"><span class="toc-number">2</span> What is FOSS?</a></li>
+                        <li class="toc-sub"><a href="#s2-1">Definition & Core Concept</a></li>
+                        <li class="toc-sub"><a href="#s2-2">Four Essential Freedoms</a></li>
+                        <li class="toc-sub"><a href="#s2-3">Free Software vs Open Source</a></li>
+                        <li><a href="#s3"><span class="toc-number">3</span> Dangers of Cracked Software</a></li>
+                        <li><a href="#s4"><span class="toc-number">4</span> Android vs iOS</a></li>
+                        <li><a href="#s5"><span class="toc-number">5</span> Economic & Social Impact</a></li>
+                        <li><a href="#s6"><span class="toc-number">6</span> Chapter Summary</a></li>
+                        <li><a href="#s7"><span class="toc-number">?</span> Review Questions</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- ARTICLE -->
+            <article class="ch1-article">
+
+                <!-- Section 1: Historical Context -->
+                <section id="s1" class="ch1-section reveal">
+                    <div class="ch1-section-label">Section 1</div>
+                    <h2 class="content-heading ch1-section-heading">Historical Context and Origins</h2>
+
+                    <div id="s1-1" class="ch1-subsection reveal">
+                        <h3 class="content-heading ch1-sub-heading">The Software Crisis of the 1970s–80s</h3>
+                        <p class="content-p">
+                            In the early days of computing, hardware advanced much faster than software. The term
+                            <strong>"software crisis"</strong> was first used at the NATO Software Engineering
+                            Conference in 1968. As computers grew more powerful, writing reliable software became
+                            extremely difficult.
+                        </p>
+                        <p class="content-p">
+                            The crisis showed up as projects running over budget, low-quality code, unmanageable
+                            systems, and projects that were never completed. A famous example is the <strong>Therac-25
+                                (1985–1987)</strong>, a radiation therapy machine whose software errors caused patients
+                            to receive lethal doses of radiation. These failures proved the software industry needed
+                            better ways to build and share code.
+                        </p>
+                    </div>
+
+                    <div id="s1-2" class="ch1-subsection reveal">
+                        <h3 class="content-heading ch1-sub-heading">The Rise of Proprietary Software and Vendor Lock-in
+                        </h3>
+                        <p class="content-p">
+                            In the 1960s–70s, software was often shared freely among researchers. That changed in the
+                            1980s when companies began selling software separately from hardware. AT&amp;T enforced
+                            intellectual property rights on UNIX, and IBM's 1983 unbundling policy made paid licenses
+                            the norm.
+                        </p>
+                        <p class="content-p">
+                            <strong>Vendor lock-in</strong> occurs when a customer becomes so dependent on one software
+                            company that switching is nearly impossible. The vendor controls the code, updates, and
+                            prices. Users cannot see, study, or modify the source code, and depend entirely on the
+                            vendor for everything.
+                        </p>
+                    </div>
+
+                    <div id="s1-3" class="ch1-subsection reveal">
+                        <h3 class="content-heading ch1-sub-heading">The Birth of the Free Software Movement (1983–1985)
+                        </h3>
+                        <div class="ch1-story-card">
+                            <div class="ch1-story-icon">🖨️</div>
+                            <div class="ch1-story-text">
+                                <p class="content-p" style="margin:0">In the late 1970s, Richard Stallman was a
+                                    programmer at the MIT AI Laboratory. The lab received a new Xerox printer that
+                                    frequently jammed. With their old printer, Stallman had modified the software to
+                                    send jam notifications. But Xerox refused to share the new printer's source code,
+                                    calling it a trade secret.</p>
+                                <p class="content-p" style="margin-top:0.75rem; margin-bottom:0">This experience was a
+                                    turning point. On <strong>September 27, 1983</strong>, Stallman announced his plan
+                                    to build a complete free operating system called GNU (<em>"GNU's Not Unix!"</em>).
+                                    Development began in January 1984.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="s1-4" class="ch1-subsection reveal">
+                        <h3 class="content-heading ch1-sub-heading">Key Milestones: GNU Project and FSF</h3>
+                        <p class="content-p">The GNU Project produced essential tools (GCC compiler, Emacs editor, Bash
+                            shell) but lacked a kernel. In 1991, Finnish student <strong>Linus Torvalds</strong> created
+                            the Linux kernel and released it under the GNU GPL in 1992. Combined with GNU tools, this
+                            formed the first fully free operating system: <strong>GNU/Linux</strong>.</p>
+                        <p class="content-p">On October 4, 1985, Stallman founded the <strong>Free Software Foundation
+                                (FSF)</strong> to promote computing freedom and fund GNU development. The FSF created
+                            the <strong>GNU General Public License (GPL)</strong>, which introduced copyleft — a legal
+                            mechanism ensuring that software and all its derivatives remain free.</p>
+
+                        <div class="ch1-timeline reveal">
+                            <div class="timeline-item">
+                                <div class="tl-year">1968</div>
+                                <div class="tl-dot"></div>
+                                <div class="tl-text">"Software crisis" term coined at NATO Conference</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="tl-year">1983</div>
+                                <div class="tl-dot"></div>
+                                <div class="tl-text">GNU Project announced by Richard Stallman</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="tl-year">1985</div>
+                                <div class="tl-dot"></div>
+                                <div class="tl-text">Free Software Foundation (FSF) founded</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="tl-year">1991</div>
+                                <div class="tl-dot"></div>
+                                <div class="tl-text">Linux kernel created by Linus Torvalds</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="tl-year">1998</div>
+                                <div class="tl-dot"></div>
+                                <div class="tl-text">Open Source Initiative (OSI) founded</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: What is FOSS? -->
+                <section id="s2" class="ch1-section reveal">
+                    <div class="ch1-section-label">Section 2</div>
+                    <h2 class="content-heading ch1-section-heading">What is Free and Open Source Software (FOSS)?</h2>
+
+                    <div id="s2-1" class="ch1-subsection reveal">
+                        <h3 class="content-heading ch1-sub-heading">Definition and Core Concept</h3>
+                        <div class="ch1-quote-block reveal">
+                            <span class="ch1-quote-mark">"</span>
+                            <p>"Free" in "free software" means <strong>freedom</strong>, not "free of charge." Think of
+                                "free" as in "free speech," not "free coffee." A program is free software if users can
+                                run it, study it, share it, and improve it. This requires access to the <strong>source
+                                    code</strong> — the human-readable version of the program.</p>
+                        </div>
+                    </div>
+
+                    <div id="s2-2" class="ch1-subsection reveal">
+                        <h3 class="content-heading ch1-sub-heading">The Four Essential Freedoms</h3>
+                        <p class="content-p">The Free Software Definition lists four essential freedoms:</p>
+                        <div class="ch1-freedoms-grid">
+                            <div class="freedom-card">
+                                <div class="freedom-num">0</div>
+                                <div class="freedom-icon"><span class="material-symbols-outlined">play_circle</span>
+                                </div>
+                                <h4 class="freedom-title">Freedom 0</h4>
+                                <p class="freedom-desc">Run the program for any purpose.</p>
+                            </div>
+                            <div class="freedom-card">
+                                <div class="freedom-num">1</div>
+                                <div class="freedom-icon"><span class="material-symbols-outlined">search</span></div>
+                                <h4 class="freedom-title">Freedom 1</h4>
+                                <p class="freedom-desc">Study how the program works and change it <em>(requires source
+                                        code)</em>.</p>
+                            </div>
+                            <div class="freedom-card">
+                                <div class="freedom-num">2</div>
+                                <div class="freedom-icon"><span class="material-symbols-outlined">share</span></div>
+                                <h4 class="freedom-title">Freedom 2</h4>
+                                <p class="freedom-desc">Redistribute copies to help others.</p>
+                            </div>
+                            <div class="freedom-card">
+                                <div class="freedom-num">3</div>
+                                <div class="freedom-icon"><span class="material-symbols-outlined">rocket_launch</span>
+                                </div>
+                                <h4 class="freedom-title">Freedom 3</h4>
+                                <p class="freedom-desc">Distribute your modified versions to the public.</p>
+                            </div>
+                        </div>
+                        <p class="content-p">If any freedom is missing, the software is <strong>proprietary
+                                (non-free)</strong>. The numbering starts from 0, following programming convention.</p>
+                    </div>
+
+                    <div id="s2-3" class="ch1-subsection reveal">
+                        <h3 class="content-heading ch1-sub-heading">Free Software vs. Open Source vs. FOSS</h3>
+                        <div class="content-table-wrap">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>Aspect</th>
+                                        <th>Free Software (FSF)</th>
+                                        <th>Open Source (OSI)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Focus</td>
+                                        <td>Ethics and user freedoms</td>
+                                        <td>Practical benefits and methodology</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Key argument</td>
+                                        <td>Non-free software is morally wrong</td>
+                                        <td>Open development produces better software</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Founded</td>
+                                        <td>1985</td>
+                                        <td>1998</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Key figure</td>
+                                        <td>Richard Stallman</td>
+                                        <td>Eric Raymond, Bruce Perens</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="content-p">Both movements promote similar licenses but differ in philosophy. Neutral
+                            umbrella terms were created to bridge them:</p>
+                        <ul class="content-list">
+                            <li><strong>FOSS</strong> = Free and Open Source Software</li>
+                            <li><strong>FLOSS</strong> = Free/Libre and Open Source Software</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 3: Cracked Software -->
+                <section id="s3" class="ch1-section reveal">
+                    <div class="ch1-section-label">Section 3</div>
+                    <h2 class="content-heading ch1-section-heading">The Dangers of Cracked Software</h2>
+
+                    <div class="ch1-danger-grid">
+                        <div class="danger-card reveal">
+                            <div class="danger-icon"><span class="material-symbols-outlined">bug_report</span></div>
+                            <h4 class="danger-title">Security Risks & Malware</h4>
+                            <p class="danger-desc">Cracked software often contains Trojans, ransomware, keyloggers,
+                                rootkits, and crypto miners. Attackers commonly ask users to disable antivirus before
+                                installing — exactly what they want.</p>
+                        </div>
+                        <div class="danger-card reveal">
+                            <div class="danger-icon"><span class="material-symbols-outlined">dangerous</span></div>
+                            <h4 class="danger-title">System Instability</h4>
+                            <p class="danger-desc">Cracking damages protection mechanisms causing crashes, data
+                                corruption, broken features, and incompatibility with updates. Security patches are
+                                never received.</p>
+                        </div>
+                        <div class="danger-card reveal">
+                            <div class="danger-icon"><span class="material-symbols-outlined">gavel</span></div>
+                            <h4 class="danger-title">Legal Consequences</h4>
+                            <p class="danger-desc">Using cracked software is copyright infringement — illegal.
+                                Consequences include fines, academic disciplinary action, and professional termination.
+                            </p>
+                        </div>
+                        <div class="danger-card reveal">
+                            <div class="danger-icon"><span class="material-symbols-outlined">money_off</span></div>
+                            <h4 class="danger-title">False Economy</h4>
+                            <p class="danger-desc">Hidden costs: system recovery, data loss, identity theft from stolen
+                                credentials, and permanent security vulnerabilities from missing updates.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box foss-box reveal" style="margin-top:1.5rem">
+                        <div class="box-title"><span class="material-symbols-outlined"
+                                style="vertical-align:middle;font-size:1rem">check_circle</span> FOSS: The Legal and
+                            Safe Alternative</div>
+                        <div class="box-body">
+                            <p style="margin:0 0 1rem">FOSS solves this problem: genuinely free software with no legal
+                                risks, community-reviewed security, transparent code, and regular updates.</p>
+                            <div class="content-table-wrap">
+                                <table class="content-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Proprietary Software</th>
+                                            <th>FOSS Alternative</th>
+                                            <th>Purpose</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Microsoft Office</td>
+                                            <td>LibreOffice</td>
+                                            <td>Office suite</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Adobe Photoshop</td>
+                                            <td>GIMP</td>
+                                            <td>Image editing</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MATLAB</td>
+                                            <td>GNU Octave, Scilab</td>
+                                            <td>Scientific computing</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Windows</td>
+                                            <td>GNU/Linux (Ubuntu, Fedora)</td>
+                                            <td>Operating system</td>
+                                        </tr>
+                                        <tr>
+                                            <td>AutoCAD</td>
+                                            <td>FreeCAD</td>
+                                            <td>3D CAD modeling</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Adobe Premiere</td>
+                                            <td>Kdenlive, Shotcut</td>
+                                            <td>Video editing</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 4: Android vs iOS -->
+                <section id="s4" class="ch1-section reveal">
+                    <div class="ch1-section-label">Section 4</div>
+                    <h2 class="content-heading ch1-section-heading">Real-World Comparison: Android vs. iOS</h2>
+                    <div class="ch1-versus-wrap">
+                        <div class="ch1-vs-card android">
+                            <div class="vs-logo"><span class="material-symbols-outlined">android</span></div>
+                            <h3 class="vs-title">Android</h3>
+                            <div class="vs-badge open">Open Source</div>
+                            <ul class="vs-list">
+                                <li><strong>Source:</strong> Public (AOSP)</li>
+                                <li><strong>Customization:</strong> High — can be modified</li>
+                                <li><strong>App install:</strong> Stores and direct APK</li>
+                                <li><strong>Devices:</strong> Many brands and price ranges</li>
+                                <li><strong>FOSS apps:</strong> Large ecosystem</li>
+                            </ul>
+                        </div>
+                        <div class="ch1-vs-divider">VS</div>
+                        <div class="ch1-vs-card ios">
+                            <div class="vs-logo"><span class="material-symbols-outlined">apple</span></div>
+                            <h3 class="vs-title">iOS</h3>
+                            <div class="vs-badge proprietary">Proprietary</div>
+                            <ul class="vs-list">
+                                <li><strong>Source:</strong> Closed, Apple-controlled</li>
+                                <li><strong>Customization:</strong> Limited, Apple controls most aspects</li>
+                                <li><strong>App install:</strong> Mainly App Store only</li>
+                                <li><strong>Devices:</strong> Apple devices only</li>
+                                <li><strong>FOSS apps:</strong> Fewer due to restrictions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="content-p">Android's open-source model enables wide global adoption, especially where
+                        affordable devices are important. iOS offers a polished experience but at the cost of user
+                        freedom and higher prices.</p>
+                </section>
+
+                <!-- Section 5: Economic Impact -->
+                <section id="s5" class="ch1-section reveal">
+                    <div class="ch1-section-label">Section 5</div>
+                    <h2 class="content-heading ch1-section-heading">Economic and Social Impact</h2>
+
+                    <h3 class="content-heading ch1-sub-heading">Global Impact</h3>
+                    <p class="content-p">FOSS powers much of the internet: web servers such as Apache and Nginx,
+                        languages such as Python and PHP, databases such as MySQL and PostgreSQL, and the infrastructure
+                        of major technology companies. Free software is a practical foundation of the modern digital
+                        economy.</p>
+
+                    <h3 class="content-heading ch1-sub-heading">FOSS in Developing Nations</h3>
+                    <p class="content-p">For developing countries, FOSS allows deploying software on many computers
+                        without license fees, avoiding dependence on foreign vendors, and building local technical
+                        skills. Several countries have adopted national FOSS policies.</p>
+
+                    <div class="ch1-algeria-card reveal">
+                        <div class="alg-header">
+                            <span class="alg-flag">🇩🇿</span>
+                            <h3 class="alg-title">FOSS Adoption in Algeria</h3>
+                        </div>
+                        <p class="content-p" style="margin-bottom:0.85rem">Algeria has taken important steps toward FOSS
+                            adoption in higher education:</p>
+                        <ul class="content-list">
+                            <li><strong>Ministerial Decree No. 138 (July 1, 2025)</strong> mandates the adoption of FOSS
+                                across higher education and scientific research institutions.</li>
+                            <li>An <strong>Algerian Linux operating system</strong> was developed collaboratively by
+                                students from ten university teams and launched in November 2024.</li>
+                            <li>A <strong>national FOSS committee</strong> was established within the Ministry of Higher
+                                Education to coordinate FOSS strategy.</li>
+                        </ul>
+                        <p class="content-p" style="margin-bottom:0">These initiatives reduce costs, empower students
+                            with practical skills, support Arabic and Amazigh language tools, and encourage local
+                            software startups.</p>
+                    </div>
+
+                    <h3 class="content-heading ch1-sub-heading" style="margin-top:1.5rem">Digital Sovereignty and
+                        National Security</h3>
+                    <p class="content-p"><strong>Digital sovereignty</strong> is a country's ability to control its own
+                        digital infrastructure and data. Relying on foreign proprietary software means less control over
+                        the code, dependence on external vendors, and risk to sensitive data.</p>
+                    <p class="content-p">FOSS helps by providing <strong>transparency</strong> (anyone can inspect the
+                        code), <strong>independence</strong> (no single company controls it), and
+                        <strong>flexibility</strong> (software can be modified for national needs). For Algeria, FOSS
+                        adoption is a direct path to digital independence.
+                    </p>
+                </section>
+
+                <!-- Section 6: Summary -->
+                <section id="s6" class="ch1-section reveal">
+                    <div class="ch1-section-label">Section 6</div>
+                    <h2 class="content-heading ch1-section-heading">Chapter Summary</h2>
+                    <div class="ch1-summary-grid">
+                        <div class="summary-item"><span class="sum-icon material-symbols-outlined">lightbulb</span> The
+                            software crisis of the 1960s–80s revealed the need for better software practices.</div>
+                        <div class="summary-item"><span class="sum-icon material-symbols-outlined">lock</span>
+                            Proprietary software restricted users' freedom and created vendor lock-in.</div>
+                        <div class="summary-item"><span class="sum-icon material-symbols-outlined">terminal</span>
+                            Richard Stallman launched GNU (1983) and the FSF (1985), establishing the free software
+                            movement.</div>
+                        <div class="summary-item"><span class="sum-icon material-symbols-outlined">lock_open</span> The
+                            Four Freedoms (run, study, share, improve) define free software.</div>
+                        <div class="summary-item"><span class="sum-icon material-symbols-outlined">balance</span> Free
+                            Software focuses on ethics; Open Source on practical benefits; FOSS combines both.</div>
+                        <div class="summary-item"><span class="sum-icon material-symbols-outlined">security</span>
+                            Cracked software is dangerous and unnecessary; FOSS provides legal, secure alternatives.
+                        </div>
+                        <div class="summary-item"><span class="sum-icon material-symbols-outlined">smartphone</span>
+                            Android vs. iOS shows how open source enables wider adoption and lower costs.</div>
+                        <div class="summary-item"><span class="sum-icon">🇩🇿</span> Algeria's Decree 138 and its
+                            national Linux OS show a strong commitment to FOSS in education.</div>
+                        <div class="summary-item"><span class="sum-icon material-symbols-outlined">public</span> Digital
+                            sovereignty requires FOSS for transparency, independence, and control.</div>
+                    </div>
+                </section>
+
+                <!-- Section 7: Review Questions -->
+                <section id="s7" class="ch1-section reveal">
+                    <div class="ch1-section-label">Review</div>
+                    <h2 class="content-heading ch1-section-heading">Review Questions</h2>
+                    <div class="ch1-questions">
+                        <div class="question-item"><span class="q-num">Q1</span><span>What was the software crisis and
+                                what problems did it cause?</span></div>
+                        <div class="question-item"><span class="q-num">Q2</span><span>How did the Xerox printer incident
+                                influence Stallman's decision to start the free software movement?</span></div>
+                        <div class="question-item"><span class="q-num">Q3</span><span>List and explain the Four
+                                Essential Freedoms of free software.</span></div>
+                        <div class="question-item"><span class="q-num">Q4</span><span>What is the main difference
+                                between Free Software and Open Source?</span></div>
+                        <div class="question-item"><span class="q-num">Q5</span><span>Give three reasons why cracked
+                                software is dangerous.</span></div>
+                        <div class="question-item"><span class="q-num">Q6</span><span>Name three FOSS alternatives to
+                                popular proprietary programs.</span></div>
+                        <div class="question-item"><span class="q-num">Q7</span><span>Compare Android and iOS in terms
+                                of openness and user freedom.</span></div>
+                        <div class="question-item"><span class="q-num">Q8</span><span>What is Ministerial Decree No. 138
+                                and why is it important for Algerian universities?</span></div>
+                        <div class="question-item"><span class="q-num">Q9</span><span>Explain digital sovereignty and
+                                how FOSS supports it.</span></div>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="chapter-nav-bar reveal">
+                    <a href="index.html" class="cnav-btn secondary">
+                        <span class="material-symbols-outlined">home</span> Home
+                    </a>
+                    <a href="chapter2.html" class="cnav-btn primary">
+                        Next: Legal Framework <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+
+            </article>
+        </div><!-- /ch1-layout -->
+
+    </div><!-- /page-wrapper -->
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <p>
+            <span>FOSS (Free Open Source Software)</span> – the course by <span>Mr. Mirad M</span> – All rights
+            reserved, <span>Classia 2026</span>
+        </p>
+    </footer>
+
+</body>
+
+</html>

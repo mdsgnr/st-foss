@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 3: Open-Source Operating Systems – FOSS Course | Classia</title>
+    <meta name="description"
+        content="Chapter 3 – Open-Source Operating Systems. GNU/Linux distributions, installation, terminal commands, and APT package management." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;600;700;900&family=Lexend:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/chapter3.css" />
+    <script src="js/main.js"></script>
+    <script src="js/chapter3.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="site-nav">
+        <a class="nav-logo" href="index.html">
+            <div class="logo-icon"><span class="material-symbols-outlined">terminal</span></div><span>FOSS Course</span>
+        </a>
+        <div class="nav-actions">
+            <a href="index.html" class="home-btn"><span
+                    class="material-symbols-outlined">home</span><span>Home</span></a>
+            <button class="theme-toggle" aria-label="Toggle theme"><span
+                    class="material-symbols-outlined">dark_mode</span></button>
+        </div>
+    </nav>
+
+    <div class="page-wrapper">
+
+        <header class="ch3-hero">
+            <div class="ch3-hero-bg" aria-hidden="true">
+                <div class="ch3-matrix" id="matrix-canvas-wrap"></div>
+            </div>
+            <div class="ch3-hero-content">
+                <div class="ch3-chapter-label">
+                    <span class="ch3-num">03</span>
+                    <span class="ch3-label-text">Chapter Three</span>
+                </div>
+                <h1 class="ch3-title">Open-Source<br><span class="ch3-title-accent">Operating Systems</span></h1>
+
+            </div>
+            <div class="ch3-hero-terminal" aria-hidden="true">
+                <div class="term-mock">
+                    <div class="term-bar"><span class="tb-dot r"></span><span class="tb-dot y"></span><span
+                            class="tb-dot g"></span><span class="term-title">terminal</span></div>
+                    <div class="term-body">
+                        <div class="term-line"><span class="term-prompt">$</span> <span id="hero-cmd"
+                                class="term-cmd"></span><span class="term-cursor">█</span></div>
+                        <div class="term-line out" id="hero-out" style="display:none"></div>
+                    </div>
+                </div>
+                <div class="ch3-world-stats">
+                    <div class="wstat"><span class="wstat-n">100%</span><span class="wstat-l">Top 500
+                            Supercomputers</span></div>
+                    <div class="wstat"><span class="wstat-n">90%+</span><span class="wstat-l">Web Servers</span></div>
+                    <div class="wstat"><span class="wstat-n">70%+</span><span class="wstat-l">Smartphones
+                            (Android)</span></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="ch3-layout">
+            <aside class="ch3-toc-aside">
+                <div class="toc-card sticky-toc">
+                    <div class="toc-title"><span class="material-symbols-outlined" style="font-size:1.1rem">toc</span>
+                        Contents</div>
+                    <ul class="toc-list">
+                        <li><a href="#s1"><span class="toc-number">1</span> GNU/Linux Intro</a></li>
+                        <li><a href="#s2"><span class="toc-number">2</span> Why Use Linux?</a></li>
+                        <li><a href="#s3"><span class="toc-number">3</span> Linux Distributions</a></li>
+                        <li class="toc-sub"><a href="#s3-1">Debian Family</a></li>
+                        <li class="toc-sub"><a href="#s3-2">Red Hat Family</a></li>
+                        <li class="toc-sub"><a href="#s3-3">Arch Family</a></li>
+                        <li class="toc-sub"><a href="#s3-4">For Education</a></li>
+                        <li><a href="#s4"><span class="toc-number">4</span> Installation</a></li>
+                        <li><a href="#s5"><span class="toc-number">5</span> Installation Methods</a></li>
+                        <li class="toc-sub"><a href="#s5-1">Virtual Machine</a></li>
+                        <li class="toc-sub"><a href="#s5-2">Dual Boot</a></li>
+                        <li class="toc-sub"><a href="#s5-3">Single Boot</a></li>
+                        <li><a href="#s6"><span class="toc-number">6</span> The Terminal</a></li>
+                        <li class="toc-sub"><a href="#s6-1">Navigation</a></li>
+                        <li class="toc-sub"><a href="#s6-2">File Operations</a></li>
+                        <li class="toc-sub"><a href="#s6-3">System Info</a></li>
+                        <li><a href="#s7"><span class="toc-number">7</span> CLI vs GUI</a></li>
+                        <li><a href="#s8"><span class="toc-number">8</span> APT Package Manager</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <article class="ch3-article">
+
+                <section id="s1" class="ch3-section reveal">
+                    <div class="ch3-section-label">Section 1</div>
+                    <h2 class="ch3-section-heading">Introduction: The Heart of FOSS — GNU/Linux</h2>
+                    <p class="content-p"><strong>Free and Open Source Software (FOSS)</strong> gives users four
+                        essential freedoms: run, study, redistribute, and improve. These freedoms apply to
+                        <strong>operating systems most fundamentally</strong>. Without a free OS, all other software is
+                        limited by the proprietary foundation beneath it.
+                    </p>
+                    <p class="content-p">An <strong>operating system (OS)</strong> manages your computer's hardware and
+                        provides the foundation for all other programs — translating keystrokes, saving files,
+                        allocating memory, and managing network connections.</p>
+                    <div class="info-box foss-box reveal">
+                        <div class="box-title">💡 GNU/Linux: A Complete Free System</div>
+                        <div class="box-body">
+                            <ul>
+                                <li><strong>The Linux kernel</strong> (Linus Torvalds, 1991) — core that talks to
+                                    hardware, GPL v2</li>
+                                <li><strong>The GNU tools</strong> (Richard Stallman, 1983) — essential utilities like
+                                    GCC, Bash, Emacs</li>
+                                <li><strong>Thousands of free applications</strong> — browsers, office suites, all
+                                    respecting your freedom</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-box note-box reveal">
+                        <div class="box-title">📌 GNU/Linux vs Linux</div>
+                        <div class="box-body">Most people say "Linux." The FSF says "GNU/Linux" to honor both
+                            contributing projects. Both names refer to the same OS.</div>
+                    </div>
+                </section>
+
+                <section id="s2" class="ch3-section reveal">
+                    <div class="ch3-section-label">Section 2</div>
+                    <h2 class="ch3-section-heading">Why Use Linux Instead of Proprietary Systems?</h2>
+                    <div class="ch3-problem-cards">
+                        <div class="prob-card reveal">
+                            <div class="prob-logo">🪟</div>
+                            <h4 class="prob-title">Windows Issues</h4>
+                            <ul class="prob-list">
+                                <li>💰 $100–200 per license, recurring costs</li>
+                                <li>🔍 Extensive telemetry — usage, location, searches</li>
+                                <li>🔄 Forced updates disrupting work</li>
+                                <li>🚪 Potential backdoors, cannot verify source</li>
+                                <li>📵 Planned obsolescence — hardware unsupported</li>
+                            </ul>
+                        </div>
+                        <div class="prob-card reveal">
+                            <div class="prob-logo">🍎</div>
+                            <h4 class="prob-title">macOS Issues</h4>
+                            <ul class="prob-list">
+                                <li>💻 Only runs on expensive Apple hardware</li>
+                                <li>🏛️ Walled garden — strict software control</li>
+                                <li>🔧 Right to repair severely limited</li>
+                                <li>🌐 Difficult to leave Apple ecosystem</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="ch3-sub-heading">Linux Advantages</h3>
+                    <div class="ch3-advantages-grid">
+                        <div class="adv-item"><span class="adv-icon">🔓</span>
+                            <div><strong>Free as in freedom</strong><br><span>See, modify, distribute source code. No
+                                    hidden spying.</span></div>
+                        </div>
+                        <div class="adv-item"><span class="adv-icon">💸</span>
+                            <div><strong>Free as in price</strong><br><span>No licensing fees. Install on unlimited
+                                    computers.</span></div>
+                        </div>
+                        <div class="adv-item"><span class="adv-icon">🛡️</span>
+                            <div><strong>Security through transparency</strong><br><span>Open code — vulnerabilities
+                                    found and fixed quickly. Viruses extremely rare.</span></div>
+                        </div>
+                        <div class="adv-item"><span class="adv-icon">⚡</span>
+                            <div><strong>Stability</strong><br><span>Linux servers run for years without rebooting. No
+                                    blue screen of death.</span></div>
+                        </div>
+                        <div class="adv-item"><span class="adv-icon">🖥️</span>
+                            <div><strong>Performance on any hardware</strong><br><span>Revive machines too slow for
+                                    Windows 11.</span></div>
+                        </div>
+                        <div class="adv-item"><span class="adv-icon">📚</span>
+                            <div><strong>Educational value</strong><br><span>Essential for IT, programming,
+                                    cybersecurity careers.</span></div>
+                        </div>
+                        <div class="adv-item"><span class="adv-icon">🔧</span>
+                            <div><strong>Full control</strong><br><span>No forced updates. Your computer serves you, not
+                                    a corporation.</span></div>
+                        </div>
+                        <div class="adv-item"><span class="adv-icon">🌍</span>
+                            <div><strong>Global community</strong><br><span>Help in every language, including Arabic and
+                                    French.</span></div>
+                        </div>
+                    </div>
+                    <div class="info-box foss-box reveal">
+                        <div class="box-title">🌐 Linux Is Everywhere</div>
+                        <div class="box-body">
+                            <ul>
+                                <li><strong>Android smartphones</strong> — Linux kernel, 70%+ of world's smartphones
+                                </li>
+                                <li><strong>Web servers</strong> — 90%+ of the internet (Google, Amazon, Netflix)</li>
+                                <li><strong>Supercomputers</strong> — 100% of the top 500 worldwide</li>
+                                <li><strong>Cloud computing</strong> — AWS, Google Cloud, Azure all run on Linux</li>
+                                <li><strong>Space</strong> — NASA, SpaceX, ISS use Linux</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="s3" class="ch3-section reveal">
+                    <div class="ch3-section-label">Section 3</div>
+                    <h2 class="ch3-section-heading">Linux Distributions: Freedom of Choice</h2>
+                    <p class="content-p">Unlike Windows or macOS, Linux comes in hundreds of <strong>distributions
+                            (distros)</strong>. Each is a complete OS package: kernel, GNU tools, package manager,
+                        desktop environment, applications, and a community.</p>
+
+                    <div id="s3-1" class="reveal">
+                        <h3 class="ch3-sub-heading">🟠 The Debian Family (founded 1993)</h3>
+                        <div class="content-table-wrap">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>Distribution</th>
+                                        <th>Based On</th>
+                                        <th>Characteristics</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Debian</strong></td>
+                                        <td>Independent</td>
+                                        <td>The foundation. Extremely stable. Uses .deb packages and APT. Strict free
+                                            software policy.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ubuntu</strong></td>
+                                        <td>Debian</td>
+                                        <td>Most popular desktop Linux. User-friendly, 6-month releases, LTS every 2
+                                            years. Backed by Canonical.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Linux Mint</strong></td>
+                                        <td>Ubuntu</td>
+                                        <td>Beginner-friendly, Windows-like interface, multimedia codecs pre-installed.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Zorin OS</strong></td>
+                                        <td>Ubuntu</td>
+                                        <td>Designed for Windows migrants. Multiple desktop layouts. Educational and Pro
+                                            editions.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pop!_OS</strong></td>
+                                        <td>Ubuntu</td>
+                                        <td>Optimized for gaming and creative work. Excellent NVIDIA driver support.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Kali Linux</strong></td>
+                                        <td>Debian</td>
+                                        <td>Security and penetration testing. Hundreds of pre-installed security tools.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Raspberry Pi OS</strong></td>
+                                        <td>Debian</td>
+                                        <td>Optimized for Raspberry Pi hardware.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="s3-2" class="reveal">
+                        <h3 class="ch3-sub-heading">🔴 The Red Hat Family</h3>
+                        <div class="content-table-wrap">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>Distribution</th>
+                                        <th>Based On</th>
+                                        <th>Characteristics</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Red Hat Enterprise Linux</strong></td>
+                                        <td>Independent</td>
+                                        <td>Commercial, enterprise-focused. Fortune 500 companies. Requires
+                                            subscription.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Fedora</strong></td>
+                                        <td>Red Hat</td>
+                                        <td>Community version, cutting-edge features. "Bleeding edge" testing ground.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>CentOS Stream</strong></td>
+                                        <td>Red Hat</td>
+                                        <td>Free alternative to RHEL for servers.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>AlmaLinux / Rocky Linux</strong></td>
+                                        <td>Red Hat</td>
+                                        <td>Community RHEL-compatible alternatives created after CentOS end-of-life.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="s3-3" class="reveal">
+                        <h3 class="ch3-sub-heading">🔵 The Arch Family</h3>
+                        <div class="content-table-wrap">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>Distribution</th>
+                                        <th>Based On</th>
+                                        <th>Characteristics</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Arch Linux</strong></td>
+                                        <td>Independent</td>
+                                        <td>Rolling release, minimal base, highly customizable. Expert users. Extensive
+                                            wiki.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Manjaro</strong></td>
+                                        <td>Arch</td>
+                                        <td>User-friendly Arch. Pre-configured desktop, graphical installer.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>EndeavourOS</strong></td>
+                                        <td>Arch</td>
+                                        <td>Lightweight Arch with friendly community.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="s3-4" class="reveal">
+                        <h3 class="ch3-sub-heading">📚 Recommended for Education (University of Tipaza)</h3>
+                        <div class="ch3-edu-recs">
+                            <div class="edu-rec-group">
+                                <h4>🔰 Beginners / Windows Migrants</h4>
+                                <div class="edu-tags"><span>Zorin OS Education</span><span>Linux
+                                        Mint</span><span>Ubuntu</span></div>
+                            </div>
+                            <div class="edu-rec-group">
+                                <h4>💻 Programming</h4>
+                                <div class="edu-tags"><span>Fedora</span><span>Pop!_OS</span><span>Debian</span></div>
+                            </div>
+                            <div class="edu-rec-group">
+                                <h4>🖥️ Old Hardware</h4>
+                                <div class="edu-tags"><span>Lubuntu</span><span>Xubuntu</span><span>Linux Mint
+                                        XFCE</span></div>
+                            </div>
+                        </div>
+                        <div class="info-box tip-box reveal">
+                            <div class="box-title">⭐ Why Zorin OS for This Course?</div>
+                            <div class="box-body">
+                                <ul>
+                                    <li>Designed for educational environments with Windows-like interface</li>
+                                    <li>Based on Ubuntu LTS — 5 years of security updates</li>
+                                    <li>Includes Wine for running some Windows applications</li>
+                                    <li>Free Core edition sufficient for all course requirements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="s4" class="ch3-section reveal">
+                    <div class="ch3-section-label">Section 4</div>
+                    <h2 class="ch3-section-heading">Installation: From Download to Boot</h2>
+                    <h3 class="ch3-sub-heading">What is an ISO File?</h3>
+                    <p class="content-p">An <strong>ISO file</strong> is a complete copy of a disc saved as a single
+                        file. Think of it as a perfect digital photograph of a DVD. It contains the complete OS, file
+                        system, boot information, and metadata.</p>
+                    <h3 class="ch3-sub-heading">Downloading &amp; Verifying</h3>
+                    <div class="terminal-wrap">
+                        <div class="term-topbar"><span class="tb-dot r"></span><span class="tb-dot y"></span><span
+                                class="tb-dot g"></span><span class="term-tab">cmd.exe</span></div>
+                        <div class="code-block">certutil -hashfile Zorin-OS-18-Core-64-bit.iso SHA256</div>
+                    </div>
+                    <p class="content-p">Compare the output with the checksum on the official website. If they match,
+                        your download is perfect.</p>
+                    <h3 class="ch3-sub-heading">Creating Bootable USB Media</h3>
+                    <div class="content-table-wrap">
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th>Tool</th>
+                                    <th>Platform</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Rufus</strong></td>
+                                    <td>Windows</td>
+                                    <td>Fast, reliable, recommended. Portable version available.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>balenaEtcher</strong></td>
+                                    <td>All platforms</td>
+                                    <td>Simple interface, cross-platform. Verifies written data.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ventoy</strong></td>
+                                    <td>Windows, Linux</td>
+                                    <td>Multi-ISO USB. Copy ISO files directly without rewriting.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>dd</strong></td>
+                                    <td>Linux, macOS</td>
+                                    <td>Direct disk writing. Powerful but dangerous if wrong device selected.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="info-box warning-box reveal">
+                        <div class="box-title">⚠️ Warning: All data on USB erased</div>
+                        <div class="box-body">Creating bootable USB <strong>erases all existing files</strong> on the
+                            drive. Backup first!</div>
+                    </div>
+                    <h3 class="ch3-sub-heading">Boot Menu Keys by Manufacturer</h3>
+                    <div class="ch3-boot-keys">
+                        <span class="bk-item"><strong>Dell</strong> F12</span>
+                        <span class="bk-item"><strong>HP</strong> F9 / Esc</span>
+                        <span class="bk-item"><strong>Lenovo</strong> F12</span>
+                        <span class="bk-item"><strong>Acer</strong> F12</span>
+                        <span class="bk-item"><strong>ASUS</strong> F8 / Esc</span>
+                        <span class="bk-item"><strong>Generic</strong> F2 / F10 / Esc</span>
+                    </div>
+                </section>
+
+                <section id="s5" class="ch3-section reveal">
+                    <div class="ch3-section-label">Section 5</div>
+                    <h2 class="ch3-section-heading">Installation Methods Compared</h2>
+                    <div class="ch3-methods-grid">
+                        <div id="s5-1" class="method-card vm reveal">
+                            <div class="method-header">
+                                <span class="method-icon">🖥️</span>
+                                <div>
+                                    <h3 class="method-title">Virtual Machine</h3>
+                                    <span class="method-badge recommended">⭐ Recommended for This Course</span>
+                                </div>
+                            </div>
+                            <p class="method-desc">Software simulates a complete computer within Windows/macOS. Linux
+                                runs as a program — fully functional but isolated.</p>
+                            <div class="pros-cons">
+                                <div>
+                                    <h5 class="pc-title green">✅ Advantages</h5>
+                                    <ul class="pc-list">
+                                        <li>Complete safety — mistakes contained to VM file</li>
+                                        <li>Windows installation untouched</li>
+                                        <li>Snapshots — save state and revert instantly</li>
+                                        <li>Run multiple distros simultaneously</li>
+                                        <li>Move VM files between computers</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="pc-title red">❌ Disadvantages</h5>
+                                    <ul class="pc-list">
+                                        <li>10–20% slower than native</li>
+                                        <li>Shares RAM/CPU with host system</li>
+                                        <li>Graphics limitations for GPU work</li>
+                                        <li>VM files are large (20GB+)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="info-box tip-box" style="margin-top:0.75rem">
+                                <div class="box-title">🔧 Our choice: VirtualBox (GPL)</div>
+                                <div class="box-body">Free, cross-platform, easy to use, and a true FOSS tool itself.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="s5-2" class="method-card dual reveal">
+                            <div class="method-header">
+                                <span class="method-icon">⚡</span>
+                                <div>
+                                    <h3 class="method-title">Dual Boot</h3>
+                                    <span class="method-badge intermediate">👷 Intermediate</span>
+                                </div>
+                            </div>
+                            <p class="method-desc">Linux installed alongside Windows. GRUB boot loader lets you choose
+                                OS at startup.</p>
+                            <div class="pros-cons">
+                                <div>
+                                    <h5 class="pc-title green">✅ Advantages</h5>
+                                    <ul class="pc-list">
+                                        <li>Full native performance</li>
+                                        <li>Complete hardware access — full GPU, all RAM</li>
+                                        <li>Real-world driver experience</li>
+                                        <li>Can remove Windows later</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="pc-title red">❌ Disadvantages</h5>
+                                    <ul class="pc-list">
+                                        <li>Data loss risk — partitioning errors can erase files</li>
+                                        <li>Complex setup</li>
+                                        <li>Windows updates may overwrite GRUB</li>
+                                        <li>Must restart to switch OS</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="s5-3" class="method-card single reveal">
+                            <div class="method-header">
+                                <span class="method-icon">🐧</span>
+                                <div>
+                                    <h3 class="method-title">Single Boot</h3>
+                                    <span class="method-badge expert">🔥 Expert</span>
+                                </div>
+                            </div>
+                            <p class="method-desc">Linux is the only OS. Windows completely removed. Maximum performance
+                                and FOSS purity.</p>
+                            <div class="pros-cons">
+                                <div>
+                                    <h5 class="pc-title green">✅ Advantages</h5>
+                                    <ul class="pc-list">
+                                        <li>Maximum performance</li>
+                                        <li>Full disk utilization</li>
+                                        <li>Complete FOSS commitment</li>
+                                        <li>Smaller security attack surface</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5 class="pc-title red">❌ Disadvantages</h5>
+                                    <ul class="pc-list">
+                                        <li>No fallback if Linux fails</li>
+                                        <li>Some Windows programs need alternatives</li>
+                                        <li>Too steep for beginners</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-table-wrap reveal">
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>Virtual Machine</th>
+                                    <th>Dual Boot</th>
+                                    <th>Single Boot</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Safety for learning</td>
+                                    <td>✅ Excellent</td>
+                                    <td>🟡 Good</td>
+                                    <td>❌ Poor</td>
+                                </tr>
+                                <tr>
+                                    <td>Performance</td>
+                                    <td>🟡 Good (overhead)</td>
+                                    <td>✅ Excellent</td>
+                                    <td>✅ Excellent</td>
+                                </tr>
+                                <tr>
+                                    <td>Setup difficulty</td>
+                                    <td>Easy</td>
+                                    <td>Hard</td>
+                                    <td>Medium</td>
+                                </tr>
+                                <tr>
+                                    <td>Risk to Windows</td>
+                                    <td>None</td>
+                                    <td>Low if careful</td>
+                                    <td>Complete removal</td>
+                                </tr>
+                                <tr>
+                                    <td>Best for</td>
+                                    <td>Learning, this course</td>
+                                    <td>Daily Linux use</td>
+                                    <td>Experts / servers</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="s6" class="ch3-section reveal">
+                    <div class="ch3-section-label">Section 6</div>
+                    <h2 class="ch3-section-heading">The Command Line Interface: Mastering the Terminal</h2>
+                    <p class="content-p">The graphical user interface makes Linux accessible, but the command line makes
+                        it <strong>powerful</strong>. The terminal embodies the Unix philosophy: <em>"Do one thing and
+                            do it well."</em></p>
+                    <p class="content-p">Open terminal in Zorin OS: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>T</kbd></p>
+
+                    <h3 class="ch3-sub-heading">The Prompt Explained</h3>
+                    <div class="terminal-wrap">
+                        <div class="term-topbar"><span class="tb-dot r"></span><span class="tb-dot y"></span><span
+                                class="tb-dot g"></span><span class="term-tab">bash — student@zorin-os</span></div>
+                        <div class="code-block">student@zorin-os:~$</div>
+                    </div>
+                    <div class="content-table-wrap reveal">
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>student</code></td>
+                                    <td>Current username</td>
+                                </tr>
+                                <tr>
+                                    <td><code>zorin-os</code></td>
+                                    <td>Hostname (computer name)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>~</code></td>
+                                    <td>Current directory (~ = home directory)</td>
+                                </tr>
+                                <tr>
+                                    <td><code>$</code></td>
+                                    <td>Regular user prompt</td>
+                                </tr>
+                                <tr>
+                                    <td><code>#</code></td>
+                                    <td>Root/superuser prompt</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="s6-1">
+                        <h3 class="ch3-sub-heading">Navigation Commands</h3>
+                        <div class="ch3-cmd-cards">
+                            <div class="cmd-card reveal">
+                                <div class="cmd-card-header">
+                                    <div class="cmd-card-dots"><span class="dc-r"></span><span class="dc-y"></span><span
+                                            class="dc-g"></span></div>
+                                    <span class="cmd-name">pwd</span>
+                                </div>
+                                <div class="cmd-card-body">
+                                    <div class="cmd-desc">Print Working Directory</div>
+                                    <div class="code-block">$ pwd
+                                        /home/student/Documents</div>
+                                </div>
+                            </div>
+                            <div class="cmd-card reveal">
+                                <div class="cmd-card-header">
+                                    <div class="cmd-card-dots"><span class="dc-r"></span><span class="dc-y"></span><span
+                                            class="dc-g"></span></div>
+                                    <span class="cmd-name">ls</span>
+                                </div>
+                                <div class="cmd-card-body">
+                                    <div class="cmd-desc">List Directory Contents</div>
+                                    <div class="code-block">ls <span class="comment"># basic listing</span>
+                                        ls -l <span class="comment"># long format</span>
+                                        ls -la <span class="comment"># include hidden files</span>
+                                        ls -lh <span class="comment"># human-readable sizes</span>
+                                        ls -ltr <span class="comment"># sorted by time</span></div>
+                                </div>
+                            </div>
+                            <div class="cmd-card reveal">
+                                <div class="cmd-card-header">
+                                    <div class="cmd-card-dots"><span class="dc-r"></span><span class="dc-y"></span><span
+                                            class="dc-g"></span></div>
+                                    <span class="cmd-name">cd</span>
+                                </div>
+                                <div class="cmd-card-body">
+                                    <div class="cmd-desc">Change Directory</div>
+                                    <div class="code-block">cd /home <span class="comment"># absolute path</span>
+                                        cd Documents <span class="comment"># relative path</span>
+                                        cd .. <span class="comment"># parent directory</span>
+                                        cd ~ <span class="comment"># home directory</span>
+                                        cd - <span class="comment"># previous directory</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="s6-2" class="reveal">
+                        <h3 class="ch3-sub-heading">File and Directory Operations</h3>
+                        <div class="ch3-cmd-cards">
+                            <div class="cmd-card reveal">
+                                <div class="cmd-card-header">
+                                    <div class="cmd-card-dots"><span class="dc-r"></span><span class="dc-y"></span><span
+                                            class="dc-g"></span></div>
+                                    <span class="cmd-name">mkdir</span>
+                                </div>
+                                <div class="cmd-card-body">
+                                    <div class="cmd-desc">Make Directory</div>
+                                    <div class="code-block">mkdir projects
+                                        mkdir -p a/b/c <span class="comment"># create nested dirs</span></div>
+                                </div>
+                            </div>
+                            <div class="cmd-card reveal">
+                                <div class="cmd-card-header">
+                                    <div class="cmd-card-dots"><span class="dc-r"></span><span class="dc-y"></span><span
+                                            class="dc-g"></span></div>
+                                    <span class="cmd-name">touch</span>
+                                </div>
+                                <div class="cmd-card-body">
+                                    <div class="cmd-desc">Create Empty File</div>
+                                    <div class="code-block">touch file.txt
+                                        touch a.txt b.txt c.txt</div>
+                                </div>
+                            </div>
+                            <div class="cmd-card reveal">
+                                <div class="cmd-card-header">
+                                    <div class="cmd-card-dots"><span class="dc-r"></span><span class="dc-y"></span><span
+                                            class="dc-g"></span></div>
+                                    <span class="cmd-name">cp</span>
+                                </div>
+                                <div class="cmd-card-body">
+                                    <div class="cmd-desc">Copy Files / Directories</div>
+                                    <div class="code-block">cp file.txt backup.txt
+                                        cp -r dir1 dir2
+                                        cp *.txt backup/</div>
+                                </div>
+                            </div>
+                            <div class="cmd-card reveal">
+                                <div class="cmd-card-header">
+                                    <div class="cmd-card-dots"><span class="dc-r"></span><span class="dc-y"></span><span
+                                            class="dc-g"></span></div>
+                                    <span class="cmd-name">mv</span>
+                                </div>
+                                <div class="cmd-card-body">
+                                    <div class="cmd-desc">Move or Rename</div>
+                                    <div class="code-block">mv old.txt new.txt
+                                        mv file.txt /dest/</div>
+                                </div>
+                            </div>
+                            <div class="cmd-card danger-cmd reveal">
+                                <div class="cmd-card-header">
+                                    <div class="cmd-card-dots"><span class="dc-r"></span><span class="dc-y"></span><span
+                                            class="dc-g"></span></div>
+                                    <span class="cmd-name">rm ⚠️</span>
+                                </div>
+                                <div class="cmd-card-body">
+                                    <div class="cmd-desc">Permanent delete — no trash!</div>
+                                    <div class="code-block">rm file.txt <span class="comment"># remove file</span>
+                                        rm -i file.txt <span class="comment"># prompt first</span>
+                                        rm -r directory/ <span class="comment"># remove folder</span>
+                                        <span class="comment"># NEVER: rm -rf / — destroys system!</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cmd-card reveal">
+                                <div class="cmd-card-header">
+                                    <div class="cmd-card-dots"><span class="dc-r"></span><span class="dc-y"></span><span
+                                            class="dc-g"></span></div>
+                                    <span class="cmd-name">cat / nano / vim</span>
+                                </div>
+                                <div class="cmd-card-body">
+                                    <div class="cmd-desc">View &amp; Edit Files</div>
+                                    <div class="code-block">cat file.txt <span class="comment"># display file</span>
+                                        nano file.txt <span class="comment"># simple editor</span>
+                                        vim file.txt <span class="comment"># powerful editor</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="s6-3" class="reveal">
+                        <h3 class="ch3-sub-heading">System Information &amp; Networking</h3>
+                        <div class="content-table-wrap">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>Command</th>
+                                        <th>Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>whoami</code></td>
+                                        <td>Current username</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>id</code></td>
+                                        <td>User ID and group info</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>uname -a</code></td>
+                                        <td>Kernel information</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>uptime</code></td>
+                                        <td>System uptime and load</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>df -h</code></td>
+                                        <td>Disk space usage (human-readable)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>ip addr</code></td>
+                                        <td>Network interface configuration</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>ping google.com</code></td>
+                                        <td>Test internet connectivity</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="s7" class="ch3-section reveal">
+                    <div class="ch3-section-label">Section 7</div>
+                    <h2 class="ch3-section-heading">CLI vs GUI: A Comprehensive Comparison</h2>
+                    <div class="ch3-cli-gui-intro">
+                        <div class="cg-block cli-block reveal">
+                            <div class="cg-icon">⌨️</div>
+                            <h4>CLI</h4>
+                            <p>Text-based. Type commands. Powerful, precise, scriptable.</p>
+                        </div>
+                        <div class="cg-vs-label">VS</div>
+                        <div class="cg-block gui-block reveal">
+                            <div class="cg-icon">🖱️</div>
+                            <h4>GUI</h4>
+                            <p>Visual. Windows, icons, menus. Accessible, discoverable, visual.</p>
+                        </div>
+                    </div>
+                    <div class="content-table-wrap reveal">
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th>Aspect</th>
+                                    <th>CLI</th>
+                                    <th>GUI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Learning Curve</td>
+                                    <td>Steep — memorize commands</td>
+                                    <td>Gentle — intuitive metaphors</td>
+                                </tr>
+                                <tr>
+                                    <td>Speed</td>
+                                    <td>Fast for experts, batch ops instant</td>
+                                    <td>Fast for simple tasks</td>
+                                </tr>
+                                <tr>
+                                    <td>Reproducibility</td>
+                                    <td>Commands scriptable, repeatable</td>
+                                    <td>Sequences hard to reproduce</td>
+                                </tr>
+                                <tr>
+                                    <td>Resource Usage</td>
+                                    <td>Minimal (~10MB RAM)</td>
+                                    <td>Heavy (500MB–2GB RAM)</td>
+                                </tr>
+                                <tr>
+                                    <td>Remote Access</td>
+                                    <td>Native via SSH, low bandwidth</td>
+                                    <td>Requires VNC/RDP, high bandwidth</td>
+                                </tr>
+                                <tr>
+                                    <td>Automation</td>
+                                    <td>Excellent — scripts, cron</td>
+                                    <td>Limited macro recorders</td>
+                                </tr>
+                                <tr>
+                                    <td>Discoverability</td>
+                                    <td>Poor — must know commands</td>
+                                    <td>Good — menus show options</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="ch3-when-grid">
+                        <div class="when-card cli-card reveal">
+                            <h4>⌨️ Use CLI When:</h4>
+                            <ul>
+                                <li>Repetitive tasks (batch processing)</li>
+                                <li>Remote servers via SSH</li>
+                                <li>System administration</li>
+                                <li>Writing automation scripts</li>
+                                <li>Version control with git</li>
+                            </ul>
+                        </div>
+                        <div class="when-card gui-card reveal">
+                            <h4>🖱️ Use GUI When:</h4>
+                            <ul>
+                                <li>Learning a new application</li>
+                                <li>Working with visual media</li>
+                                <li>Browsing the web</li>
+                                <li>Casual file management</li>
+                                <li>Presenting to others</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-box why-box reveal">
+                        <div class="box-title">💡 Freedom Through Understanding</div>
+                        <div class="box-body">The CLI reveals the inner workings of your system. While GUIs hide
+                            complexity, the CLI exposes logic and structure. This transparency is fundamental to FOSS —
+                            you cannot truly understand or modify what you cannot see.</div>
+                    </div>
+                </section>
+
+                <section id="s8" class="ch3-section reveal">
+                    <div class="ch3-section-label">Section 8</div>
+                    <h2 class="ch3-section-heading">Package Management: APT in Depth</h2>
+                    <p class="content-p"><strong>APT (Advanced Package Tool)</strong> is the package manager for
+                        Debian-based distributions (Ubuntu, Zorin OS, Linux Mint). Unlike Windows/macOS hunting for
+                        installers online, Linux uses centralized repositories of tested, signed software.</p>
+
+                    <h3 class="ch3-sub-heading">Essential APT Commands</h3>
+                    <div class="ch3-apt-grid">
+                        <div class="apt-card reveal">
+                            <div class="apt-title">Update Package List</div>
+                            <div class="code-block">sudo apt update</div>
+                            <p class="apt-note">Downloads latest package info. Does NOT upgrade installed software.</p>
+                        </div>
+                        <div class="apt-card reveal">
+                            <div class="apt-title">Upgrade Packages</div>
+                            <div class="code-block">sudo apt upgrade
+                                sudo apt full-upgrade</div>
+                            <p class="apt-note">full-upgrade also handles dependency changes.</p>
+                        </div>
+                        <div class="apt-card reveal">
+                            <div class="apt-title">Install Software</div>
+                            <div class="code-block">sudo apt install gimp
+                                sudo apt install gimp inkscape vlc
+                                sudo apt install -y package</div>
+                            <p class="apt-note">Use -y to skip confirmation prompts.</p>
+                        </div>
+                        <div class="apt-card reveal">
+                            <div class="apt-title">Remove Software</div>
+                            <div class="code-block">sudo apt remove package
+                                sudo apt purge package
+                                sudo apt autoremove</div>
+                            <p class="apt-note">purge also removes config files. autoremove cleans orphans.</p>
+                        </div>
+                        <div class="apt-card reveal">
+                            <div class="apt-title">Search &amp; Info</div>
+                            <div class="code-block">apt search keyword
+                                apt show package_name
+                                apt list --installed
+                                apt list --upgradeable</div>
+                        </div>
+                        <div class="apt-card reveal">
+                            <div class="apt-title">Fix Common Issues</div>
+                            <div class="code-block">sudo apt --fix-broken install
+                                sudo apt full-upgrade
+                                sudo apt autoremove &amp;&amp; sudo apt clean</div>
+                        </div>
+                    </div>
+
+                    <div class="info-box warning-box reveal">
+                        <div class="box-title">⚠️ Update vs Upgrade</div>
+                        <div class="box-body"><code>apt update</code> only updates the package list. It does NOT change
+                            any installed software. Always run this before installing or upgrading.</div>
+                    </div>
+
+                    <h3 class="ch3-sub-heading">Repository Components</h3>
+                    <div class="content-table-wrap reveal">
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>main</code></td>
+                                    <td>Officially supported free software</td>
+                                </tr>
+                                <tr>
+                                    <td><code>restricted</code></td>
+                                    <td>Officially supported non-free firmware/drivers</td>
+                                </tr>
+                                <tr>
+                                    <td><code>universe</code></td>
+                                    <td>Community-maintained free software</td>
+                                </tr>
+                                <tr>
+                                    <td><code>multiverse</code></td>
+                                    <td>Non-free software (copyright restrictions)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="ch3-sub-heading">Practical Exercise: Development Environment Setup</h3>
+                    <div class="code-block"># 1. Update system
+                        sudo apt update &amp;&amp; sudo apt upgrade -y
+
+                        # 2. Install build essentials
+                        sudo apt install build-essential git curl wget
+
+                        # 3. Install Python development
+                        sudo apt install python3 python3-pip python3-venv
+
+                        # 4. Install Node.js
+                        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+                        sudo apt install -y nodejs
+
+                        # 5. Verify installations
+                        git --version
+                        python3 --version
+                        node --version</div>
+
+                    <h3 class="ch3-sub-heading">Alternative Package Formats</h3>
+                    <div class="content-table-wrap reveal">
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th>Tool</th>
+                                    <th>Format</th>
+                                    <th>Use Case</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Snap</td>
+                                    <td>.snap</td>
+                                    <td>Universal packages, sandboxed, auto-updating (Ubuntu)</td>
+                                </tr>
+                                <tr>
+                                    <td>Flatpak</td>
+                                    <td>.flatpak</td>
+                                    <td>Universal packages, sandboxed, cross-distro (Fedora)</td>
+                                </tr>
+                                <tr>
+                                    <td>AppImage</td>
+                                    <td>.AppImage</td>
+                                    <td>Portable single-file, no installation required</td>
+                                </tr>
+                                <tr>
+                                    <td>Nix</td>
+                                    <td>Nix expr</td>
+                                    <td>Reproducible builds, declarative configuration</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="ch3-closing-quote reveal">
+                        <div class="quote-line"></div>
+                        <p class="quote-text">"The command line is the ultimate power move.<br><em>It says: I am not
+                                afraid to understand how my computer works.</em>"</p>
+                        <div class="quote-line"></div>
+                    </div>
+                </section>
+
+                <div class="chapter-nav-bar reveal">
+                    <a href="chapter2.html" class="cnav-btn secondary">← Chapter 2: Licensing</a>
+                    <a href="index.html" class="cnav-btn primary">🏠 Back to Home</a>
+                </div>
+
+            </article>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p><span>FOSS (Free Open Source Software)</span> – the course by <span>Mr. Mirad M</span> – All rights reserved,
+            <span>Classia 2026</span>
+        </p>
+    </footer>
+
+</body>
+
+</html>
